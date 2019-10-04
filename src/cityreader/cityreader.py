@@ -37,10 +37,10 @@ cities = []
 def cityreader(cities=[]):
 
   with open('src\cityreader\cities.csv') as csvfile:
-    readCSV = csv.reader(csvfile, delimiter=',')
+    readCSV = csv.reader(csvfile, delimiter=',', )
+    next(readCSV)
     for row in readCSV:
-      cities.append(City(row[0], float(row[3]), row[4]))
-    cities.pop(0)
+      cities.append(City(row[0], float(row[3]), float(row[4])))
   return cities
 
 cityreader(cities)
